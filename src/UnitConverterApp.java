@@ -2,18 +2,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 public class UnitConverterApp extends JFrame {
     // Componentes de la interfaz
     private JTextField inputField;
     private JLabel seleccionLabel, resultLabel;
     private JComboBox<String> unitComboBox;
+    private JPanel panel = new JPanel();
+    private JComboBox<String> unidadesBox;
 
     public UnitConverterApp() {
         // Configuración de la ventana
         setTitle("Unit Converter");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 150);
+        setSize(500, 400);
         setLayout(new FlowLayout());
 
         // Creación de los componentes
@@ -26,8 +30,19 @@ public class UnitConverterApp extends JFrame {
         // Agregar componentes a la ventana
         add(seleccionLabel);
         add(unitComboBox);
-        add(convertButton);
-        add(resultLabel);
+
+        // Dentro del constructor de la clase UnitConverterApp
+        unitComboBox.addItemListener((ItemListener) new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    String selectedUnit = (String) unitComboBox.getSelectedItem();
+                    showHideComponents(selectedUnit);
+                }
+            }
+        });
+
+        showHideComponents("Monedas");
 
         // Manejador de eventos para el botón de conversión
         convertButton.addActionListener(new ActionListener() {
@@ -36,6 +51,22 @@ public class UnitConverterApp extends JFrame {
                 convert();
             }
         });
+    }
+
+    private void showHideComponents(String selectedUnit) {
+            // Mostrar u ocultar componentes según la unidad seleccionada
+            if (selectedUnit.equals("Monedas")) {
+                unidadesBox = new JComboBox<>(monedas.getMonedas());
+                panel.add(unidadesBox);
+            } else if (selectedUnit.equals("Distancia")) {
+                unidadesBox = new JComboBox<>(distancia.getUnidades());
+                panel.add(unidadesBox);
+            } else if (selectedUnit.equals("Masa")) {
+                
+            } else if (selectedUnit.equals("Temperatura")) {
+                
+            }
+            panel.setVisible(true);
     }
 
     private void convert() {
