@@ -1,8 +1,7 @@
 
-public class monedas {
+public class Monedas {
     private static String[] valores = {"MXN", "USD", "EUR"};
-    public static String[] getMonedas() {
+    public static String[] getValores(){
         return valores;
     }
-
 }

@@ -1,7 +1,7 @@
 
-public class distancia {
+public class Distancia {
     private static String[] valores = {"m", "km", "cm"};
-    public static String[] getUnidades() {
+    public static String[] getValores() {
         return valores;
     }
 
