@@ -1,3 +1,5 @@
+package com.alura.conversionapp;
+
 import javax.swing.text.*;
 
 public class NumberOnlyFilter extends DocumentFilter {
@@ -10,7 +12,8 @@ public class NumberOnlyFilter extends DocumentFilter {
     }
 
     @Override
-    public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
+    public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
+            throws BadLocationException {
         // Permite solo caracteres numéricos o el signo "-" en la posición inicial
         if (isNumber(text) || canReplaceNegativeSign(fb, offset, length, text)) {
             super.replace(fb, offset, length, text, attrs);
@@ -27,9 +30,11 @@ public class NumberOnlyFilter extends DocumentFilter {
         return offset == 0 && text.equals("-") && !currentText.contains("-");
     }
 
-    private boolean canReplaceNegativeSign(FilterBypass fb, int offset, int length, String text) throws BadLocationException {
+    private boolean canReplaceNegativeSign(FilterBypass fb, int offset, int length, String text)
+            throws BadLocationException {
         Document doc = fb.getDocument();
         String currentText = doc.getText(0, doc.getLength());
-        return length == 1 && offset == 0 && text.equals("-") && !currentText.contains("-") && !text.equals(currentText) && !isNumber(currentText + text);
+        return length == 1 && offset == 0 && text.equals("-") && !currentText.contains("-") && !text.equals(currentText)
+                && !isNumber(currentText + text);
     }
 }

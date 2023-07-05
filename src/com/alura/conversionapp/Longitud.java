@@ -1,3 +1,4 @@
+package com.alura.conversionapp;
 
 public class Longitud {
     private static String[] valores = { "m", "km", "cm", "mm", "in", "ft", "yd", "mi" };

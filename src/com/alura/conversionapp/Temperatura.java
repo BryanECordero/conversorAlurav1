@@ -1,3 +1,5 @@
+package com.alura.conversionapp;
+
 public class Temperatura {
     private static String[] valores = { "°C", "K", "°F" };
 

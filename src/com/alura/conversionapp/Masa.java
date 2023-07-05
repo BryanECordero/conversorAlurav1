@@ -1,3 +1,5 @@
+package com.alura.conversionapp;
+
 public class Masa {
     private static String[] valores = { "kg", "lb", "g", "oz", "Ton metrica", "Ton corta" };
 

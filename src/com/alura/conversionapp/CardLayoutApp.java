@@ -1,3 +1,5 @@
+package com.alura.conversionapp;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.lang.reflect.InvocationTargetException;
