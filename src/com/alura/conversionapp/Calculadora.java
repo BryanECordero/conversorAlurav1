@@ -10,7 +10,7 @@ public class Calculadora {
             throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException,
             IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         // Obtener la clase por su nombre
-        Class<?> clazz = Class.forName(className);
+        Class<?> clazz = Class.forName("com.alura.conversionapp." + className);
 
         // Obtener el constructor sin argumentos y crear una instancia de la clase
         Constructor<?> constructor = clazz.getDeclaredConstructor();

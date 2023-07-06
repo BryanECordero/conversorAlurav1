@@ -124,7 +124,7 @@ public class CardLayoutApp implements ItemListener {
                     resultadoLabel.setText(valor + " " + (String) unidades1Box.getSelectedItem()
                             + " son " + resultado + " " + (String) unidades2Box.getSelectedItem());
                 } catch (Exception ex) {
-                    // ex.printStackTrace();
+                    ex.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Error: Debe ingresar un número valido");
                     inputField.setText("");
                 }
@@ -135,7 +135,7 @@ public class CardLayoutApp implements ItemListener {
     private String[] getLista(String tipo) {
         try {
             // Obtén la referencia de la clase utilizando el nombre proporcionado
-            Class<?> clazz = Class.forName(tipo);
+            Class<?> clazz = Class.forName("com.alura.conversionapp." + tipo);
 
             // Crea una instancia de la clase
             Object instance = clazz.getDeclaredConstructor().newInstance();
