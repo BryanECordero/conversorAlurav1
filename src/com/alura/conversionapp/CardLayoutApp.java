@@ -54,6 +54,8 @@ public class CardLayoutApp implements ItemListener {
         frame.setLocationRelativeTo(null);
         frame.setSize(500, 300);
         frame.setResizable(false);
+        ImageIcon img = new ImageIcon("src\\com\\alura\\conversionapp\\icons\\convertir.png");
+        frame.setIconImage(img.getImage());
     }
 
     private void AddConversionCard(JPanel panel, String tipo) {
